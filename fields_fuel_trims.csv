@@ -1,0 +1,5 @@
+original,new
+General: Intake manifold pressure (G71),MAP_mbar
+Lambda control (mixture adaptation): Adaptation (partial) bank 1 sensor 1,LTFT
+Lambda control: Lambda control bank 1 sensor 1,STFT
+General: Engine speed (G28),RPM
