@@ -86,7 +86,8 @@ if log_file is not None:
                     colorbar=dict(title=colorbar_title),
                     hoverinfo="x+y+z"
                 ))
-                fig.update_layout(title=title, xaxis_title="RPM", yaxis_title="MAP (mbar)", yaxis_autorange="reversed")
+                fig.update_layout(title=title, xaxis_title="RPM", yaxis_title="MAP (mbar)")
+                # Y-axis not reversed here, so higher MAP values appear higher
                 return fig, mask
 
             def create_count_heatmap(count_df, mask, title):
@@ -103,7 +104,8 @@ if log_file is not None:
                     colorbar=dict(title="Samples"),
                     hoverinfo="x+y+z"
                 ))
-                fig.update_layout(title=title, xaxis_title="RPM", yaxis_title="MAP (mbar)", yaxis_autorange="reversed")
+                fig.update_layout(title=title, xaxis_title="RPM", yaxis_title="MAP (mbar)")
+                # Y-axis normal here too
                 return fig
 
             def create_timeseries_chart(df):
@@ -119,7 +121,9 @@ if log_file is not None:
                     title="📈 Fuel Trim Time Series",
                     xaxis_title="Sample Index",
                     yaxis_title="Fuel Trim (%)",
-                    hovermode="x unified"
+                    hovermode="x unified",
+                    xaxis=dict(showspikes=True, spikemode='across', spikesnap='cursor', showline=True),
+                    yaxis=dict(showspikes=True, spikemode='across', spikesnap='cursor', showline=True),
                 )
                 return fig
 
